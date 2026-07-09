@@ -50,7 +50,7 @@ export default function Contact({ selectedService, onSelectService }) {
           <WhatsAppIcon />
           Scrivimi su WhatsApp
         </a>
-        <a className="instagram-link" href={contact.instagramUrl} target="_blank" rel="noreferrer">
+        <a className="button secondary" href={contact.instagramUrl} target="_blank" rel="noreferrer">
           <InstagramIcon />
           Seguimi su Instagram
         </a>
