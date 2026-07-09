@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const links = [
   { href: '#chi-sono', label: 'Chi sono' },
@@ -10,9 +10,46 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+
+    const closeOnOutsidePointer = (event) => {
+      if (!headerRef.current?.contains(event.target)) setOpen(false);
+    };
+
+    const desktopQuery = window.matchMedia('(min-width: 941px)');
+    const closeOnDesktop = (event) => {
+      if (event.matches) setOpen(false);
+    };
+
+    document.addEventListener('keydown', closeOnEscape);
+    document.addEventListener('pointerdown', closeOnOutsidePointer);
+    if (desktopQuery.matches) setOpen(false);
+    if (desktopQuery.addEventListener) {
+      desktopQuery.addEventListener('change', closeOnDesktop);
+    } else {
+      desktopQuery.addListener(closeOnDesktop);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape);
+      document.removeEventListener('pointerdown', closeOnOutsidePointer);
+      if (desktopQuery.removeEventListener) {
+        desktopQuery.removeEventListener('change', closeOnDesktop);
+      } else {
+        desktopQuery.removeListener(closeOnDesktop);
+      }
+    };
+  }, [open]);
 
   return (
-    <header className="site-header">
+    <header ref={headerRef} className={open ? 'site-header is-menu-open' : 'site-header'}>
       <a className="brand" href="#top" aria-label="Torna all’inizio">
         <span className="brand-mark" aria-hidden="true">∩</span>
         <span>
@@ -21,11 +58,17 @@ export default function Header() {
         </span>
       </a>
 
-      <button className="menu-toggle" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="main-nav">
-        <span />
-        <span />
-        <span />
-        <span className="sr-only">Apri menu</span>
+      <button
+        className="menu-toggle"
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        aria-controls="main-nav"
+        aria-label={open ? 'Chiudi menu' : 'Apri menu'}
+      >
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
       </button>
 
       <nav id="main-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Menu principale">
