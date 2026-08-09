@@ -37,8 +37,8 @@ export default function App() {
       <Header />
       <main>
         <Hero onPrimary={() => document.getElementById('servizi')?.scrollIntoView({ behavior: 'smooth' })} />
-        <NeedNavigator onChoose={(id) => selectAndScroll(id, 'servizi')} />
         <About />
+        <NeedNavigator onChoose={(id) => selectAndScroll(id, 'servizi')} />
         <ServiceExplorer
           selectedServiceId={selectedServiceId}
           onSelect={setSelectedServiceId}

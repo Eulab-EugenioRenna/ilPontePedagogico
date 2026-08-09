@@ -26,41 +26,6 @@ export default function Hero({ onPrimary }) {
         </div>
       </div>
 
-      <div className="hero-visual" data-reveal>
-        <div className="orb orb-rose" />
-        <div className="orb orb-sage" />
-        <div className="orb orb-powder" />
-        <div className="portrait-card">
-          <div className="bridge-illustration" aria-hidden="true">
-            <svg viewBox="0 0 420 320" role="img" aria-label="Illustrazione minimal di un ponte pedagogico">
-              <defs>
-                <linearGradient id="bridgeGradient" x1="0" x2="1">
-                  <stop offset="0" stopColor="#e7cfc7" />
-                  <stop offset="0.55" stopColor="#b9c8b5" />
-                  <stop offset="1" stopColor="#c9d7dd" />
-                </linearGradient>
-              </defs>
-              <path className="bridge-arc" d="M54 223C120 106 300 106 366 223" />
-              <path className="bridge-deck" d="M85 228H335" />
-              <path className="bridge-line line-a" d="M122 213L140 158" />
-              <path className="bridge-line line-b" d="M210 202V132" />
-              <path className="bridge-line line-c" d="M298 213L280 158" />
-              <circle cx="112" cy="118" r="31" fill="#e7cfc7" />
-              <circle cx="308" cy="118" r="31" fill="#c9d7dd" />
-              <circle cx="210" cy="84" r="24" fill="#b9c8b5" />
-              <path d="M119 119c28 35 152 35 180 0" fill="none" stroke="url(#bridgeGradient)" strokeWidth="10" strokeLinecap="round" strokeDasharray="4 18" />
-            </svg>
-          </div>
-          <div className="hero-note note-one">
-            <small>Da bisogno a percorso</small>
-            <strong>ascolto → strategia → autonomia</strong>
-          </div>
-          <div className="hero-note note-two">
-            <small>Approccio</small>
-            <strong>scientifico, umano, concreto</strong>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

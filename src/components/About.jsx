@@ -10,9 +10,15 @@ export default function About() {
 
       <div className="about-layout">
         <article className="story-panel" data-reveal>
-          <figure className="about-photo">
-            <img src="/noemi.jpg" alt="Noemi Urboni, pedagogista" />
-          </figure>
+          <div className="about-photo-composition" aria-label="Noemi Urboni durante alcune attività educative">
+            <figure className="about-photo about-photo-primary">
+              <img src="/shooting-noemi-13.jpg" alt="Noemi Urboni durante un’attività educativa con giochi e bolle di sapone" />
+            </figure>
+            <figure className="about-photo about-photo-secondary">
+              <img src="/shooting-noemi-15.jpg" alt="Noemi Urboni con materiali educativi" />
+            </figure>
+            <span className="about-photo-caption">Pedagogia<br />in pratica</span>
+          </div>
           <p className="lead-text">
             Benvenuti su <strong>Il Ponte Pedagogico</strong>. Il mio nome è <strong>Noemi Urboni</strong> e il mio lavoro consiste nel tradurre la pedagogia in strumenti concreti per le famiglie, gli educatori e gli insegnanti.
           </p>

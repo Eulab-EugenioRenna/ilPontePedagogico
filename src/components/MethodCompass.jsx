@@ -89,9 +89,15 @@ export default function MethodCompass() {
           </div>
 
           <article className="scroll-section" aria-live="polite">
-            <span>{active.eyebrow}</span>
-            <h3>{active.title}</h3>
-            <p>{active.text}</p>
+            <div className="scroll-section-copy">
+              <span>{active.eyebrow}</span>
+              <h3>{active.title}</h3>
+              <p>{active.text}</p>
+            </div>
+            <figure className="method-photo">
+              <img src="/shooting-noemi-3.jpg" alt="Noemi Urboni durante la programmazione di un percorso pedagogico" />
+              <figcaption>Programmazione personalizzata</figcaption>
+            </figure>
           </article>
         </div>
       </div>
