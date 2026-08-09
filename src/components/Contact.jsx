@@ -36,10 +36,10 @@ export default function Contact({ selectedService, onSelectService }) {
   return (
     <section id="contatti" className="contact section-shell">
       <div className="contact-cta" data-reveal>
-        <span className="section-kicker">Contatti</span>
-        <h2>Hai bisogno di orientamento educativo?</h2>
+        <span className="section-kicker">Il primo passo</span>
+        <h2>Non devi avere già le parole giuste.</h2>
         <p>
-          Ogni percorso nasce da un primo confronto. Racconta la tua situazione: valuterete insieme il tipo di supporto più adatto.
+          Raccontami cosa sta succedendo e qual è il momento che oggi ti preoccupa di più. Valuteremo insieme se e in che modo posso esserti utile.
         </p>
         <div className="contact-highlight">
           <small>Servizio selezionato</small>
@@ -48,11 +48,11 @@ export default function Contact({ selectedService, onSelectService }) {
         </div>
         <a className="button primary" href={buildWhatsAppUrl(selectedService.title)} target="_blank" rel="noreferrer">
           <WhatsAppIcon />
-          Scrivimi su WhatsApp
+          Raccontami cosa sta succedendo
         </a>
         <a className="button secondary" href={contact.instagramUrl} target="_blank" rel="noreferrer">
           <InstagramIcon />
-          Seguimi su Instagram
+          Conosci il mio lavoro su Instagram
         </a>
       </div>
 
@@ -85,13 +85,13 @@ export default function Contact({ selectedService, onSelectService }) {
         </label>
         <label>
           Messaggio
-          <textarea name="message" rows="5" placeholder="Racconta brevemente la situazione o il bisogno principale" required />
+          <textarea name="message" rows="5" placeholder="Qual è il momento che oggi ti mette più in difficoltà?" required />
         </label>
         <label className="privacy-check">
           <input type="checkbox" required />
           <span>Accetto il trattamento dei dati secondo la Privacy Policy.</span>
         </label>
-        <button className="button primary full" type="submit">Invia richiesta via email</button>
+        <button className="button primary full" type="submit">Chiedi un primo orientamento</button>
         <p className="form-feedback" data-form-feedback role="status" />
       </form>
     </section>

@@ -64,9 +64,9 @@ export default function MethodCompass() {
       <div className="method-card block-section" ref={blockRef}>
         <div className="section-heading align-left method-heading">
           <span className="section-kicker">Metodo</span>
-          <h2>Nessun modello rigido. Solo percorsi costruiti sulla persona.</h2>
+          <h2>Prima di scegliere cosa fare, capiamo cosa sta succedendo.</h2>
           <p>
-            Il pedagogista è un ponte: collega il sapere scientifico alle esigenze concrete della vita di tutti i giorni.
+            Non esistono strategie valide per tutti. Osserviamo il bisogno, il contesto e ciò che mantiene la difficoltà, poi trasformiamo questa lettura in azioni possibili.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function MethodCompass() {
             </div>
             <figure className="method-photo">
               <img src="/shooting-noemi-3.jpg" alt="Noemi Urboni durante la programmazione di un percorso pedagogico" />
-              <figcaption>Programmazione personalizzata</figcaption>
+              <figcaption>Dal bisogno a un piano possibile</figcaption>
             </figure>
           </article>
         </div>

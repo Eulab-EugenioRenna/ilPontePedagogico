@@ -10,8 +10,8 @@ export default function NeedNavigator({ onChoose }) {
   return (
     <section className="need-strip" aria-labelledby="need-title">
       <div className="section-heading compact" data-reveal>
-        <span className="section-kicker">Da dove partiamo?</span>
-        <h2 id="need-title">Scegli il bisogno che senti più vicino</h2>
+        <span className="section-kicker">Partiamo da ciò che accade</span>
+        <h2 id="need-title">Qual è il momento che oggi pesa di più?</h2>
       </div>
       <div className="need-grid">
         {insightCards.map((card, index) => (

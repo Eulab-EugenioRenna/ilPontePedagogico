@@ -12,8 +12,8 @@ export default function ServiceExplorer({ selectedServiceId, onSelect, onCta }) 
     <section id="servizi" className="services section-shell">
       <div className="section-heading" data-reveal>
         <span className="section-kicker">Servizi</span>
-        <h2>Non un elenco di prestazioni: un modo per orientarti nel bisogno.</h2>
-        <p>Ogni card apre un dettaglio operativo per capire subito a cosa serve il percorso e quale risultato vuole generare.</p>
+        <h2>Non devi sapere già quale percorso scegliere.</h2>
+        <p>Parti dalla difficoltà che stai vivendo: insieme possiamo capire quale tipo di supporto può esserti davvero utile.</p>
       </div>
 
       <div className="service-filters" data-reveal aria-label="Filtra i servizi per area">
@@ -41,19 +41,19 @@ export default function ServiceExplorer({ selectedServiceId, onSelect, onCta }) 
         </div>
 
         <article className="service-detail" data-reveal aria-live="polite">
-          <span className="detail-label">Percorso selezionato</span>
+          <span className="detail-label">Da qui possiamo partire</span>
           <h3>{selectedService.title}</h3>
           <p className="detail-promise">{selectedService.promise}</p>
 
           <div className="detail-columns">
             <div>
-              <h4>Utile per</h4>
+              <h4>Può aiutarti se</h4>
               <ul>
                 {selectedService.goodFor.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
             <div>
-              <h4>Come si lavora</h4>
+              <h4>Cosa faremo</h4>
               <ol>
                 {selectedService.steps.map((item) => <li key={item}>{item}</li>)}
               </ol>

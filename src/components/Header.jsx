@@ -75,7 +75,7 @@ export default function Header() {
         {links.map((link) => (
           <a key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
         ))}
-        <a className="nav-cta" href="#contatti" onClick={() => setOpen(false)}>Prenota una consulenza</a>
+        <a className="nav-cta" href="#contatti" onClick={() => setOpen(false)}>Capisci da dove iniziare</a>
       </nav>
     </header>
   );

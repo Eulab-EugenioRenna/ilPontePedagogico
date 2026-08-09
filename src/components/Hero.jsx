@@ -7,16 +7,16 @@ export default function Hero({ onPrimary }) {
   return (
     <section id="top" className="hero section-shell">
       <div className="hero-copy" data-reveal>
-        <div className="eyebrow"><span /> Consulenza pedagogica personalizzata</div>
+        <div className="eyebrow"><span /> Noemi Urboni · Pedagogista ABA</div>
         <h1>
-          Tradurre la pedagogia in <em key={word}>{word}</em>
+          Capire cosa accade. Costruire <em key={word}>{word}</em>
         </h1>
         <p className="hero-lead">
-          Sono <strong>Noemi Urboni</strong>, pedagogista specializzata in ABA. <br /> Aiuto famiglie, educatori e insegnanti a trasformare bisogni educativi complessi in percorsi chiari, sostenibili e applicabili nella vita quotidiana.
+          Se una routine, un comportamento o il rapporto con lo studio sono diventati fonte di fatica, non devi avere già una risposta. Partiamo da ciò che accade davvero e costruiamo strategie applicabili ogni giorno.
         </p>
         <div className="hero-actions">
-          <button className="button primary" type="button" onClick={onPrimary}>Trova il percorso adatto</button>
-          <a className="button ghost" href="#metodo">Scopri il metodo</a>
+          <button className="button primary" type="button" onClick={onPrimary}>Capisci da dove iniziare</button>
+          <a className="button ghost" href="#metodo">Come lavoreremo insieme</a>
         </div>
         <div className="trust-row" aria-label="Aree di intervento">
           <span>0-3 anni</span>

@@ -4,10 +4,10 @@ export default function SocialProof() {
   return (
     <section id="storie" className="proof section-shell">
       <div className="section-heading" data-reveal>
-        <span className="section-kicker">Storie reali</span>
-        <h2>Spazi pronti per foto, casi studio e recensioni.</h2>
+        <span className="section-kicker">Esperienze e percorsi</span>
+        <h2>I cambiamenti iniziano spesso dalle piccole cose.</h2>
         <p>
-          Una sezione pensata per mostrare percorsi, trasformazioni e parole delle famiglie senza perdere delicatezza.
+          Una richiesta espressa con più chiarezza, un momento della giornata meno faticoso, un metodo finalmente sostenibile: è da qui che un percorso comincia a farsi vedere.
         </p>
       </div>
 

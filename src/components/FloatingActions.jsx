@@ -7,7 +7,7 @@ export default function FloatingActions({ selectedService }) {
 
   return (
     <div className="floating-actions" aria-label="Azioni rapide">
-      <a href="#contatti" className="floating-pill">Prenota</a>
+      <a href="#contatti" className="floating-pill">Inizia da qui</a>
       <a href={contact.instagramUrl} className="floating-instagram" target="_blank" rel="noreferrer" aria-label="Apri Instagram">
         <InstagramIcon />
       </a>

@@ -1,15 +1,15 @@
 const steps = [
   {
-    title: 'Racconti il bisogno',
-    text: 'Un primo confronto serve a capire cosa sta succedendo, quali sono le priorità e cosa rende la situazione faticosa.',
+    title: 'Mi racconti cosa succede',
+    text: 'Non servono parole tecniche o una diagnosi già chiara. Partiamo dagli episodi, dai dubbi e dai momenti che oggi ti mettono più in difficoltà.',
   },
   {
-    title: 'Costruiamo una mappa',
-    text: 'Il bisogno viene tradotto in obiettivi, strategie e passaggi concreti, coerenti con famiglia, scuola o contesto educativo.',
+    title: 'Diamo un senso a ciò che osservi',
+    text: 'Mettiamo in relazione comportamenti, contesto e priorità per capire dove intervenire e quale cambiamento cercare per primo.',
   },
   {
-    title: 'Porti gli strumenti nella vita reale',
-    text: 'Il percorso accompagna l’applicazione, così le strategie diventano competenze e non restano teoria.',
+    title: 'Proviamo strategie sostenibili',
+    text: 'Le indicazioni entrano nella quotidianità e vengono osservate nel tempo, così possiamo capire cosa funziona e cosa va adattato.',
   },
 ];
 
@@ -17,8 +17,8 @@ export default function Journey() {
   return (
     <section className="journey section-shell">
       <div className="section-heading" data-reveal>
-        <span className="section-kicker">Percorso</span>
-        <h2>Dal primo messaggio a un piano d’azione chiaro.</h2>
+        <span className="section-kicker">Dopo il primo messaggio</span>
+        <h2>Non devi arrivare con una soluzione. La costruiamo un passo alla volta.</h2>
       </div>
       <div className="journey-line" data-reveal>
         {steps.map((step, index) => (
