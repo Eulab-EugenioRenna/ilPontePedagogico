@@ -1135,7 +1135,7 @@ input:focus, select:focus, textarea:focus { border-color: rgba(169, 121, 99, 0.6
   .brand small { display: none; }
   h1 { font-size: clamp(2.65rem, 13vw, 3.5rem); }
   h2 { font-size: clamp(2rem, 9vw, 2.75rem); }
-  .hero { padding-bottom: 2.2rem; }
+  .hero { overflow: clip; padding-bottom: 2.2rem; }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .button { width: 100%; }
   .portrait-card { min-height: 380px; }
