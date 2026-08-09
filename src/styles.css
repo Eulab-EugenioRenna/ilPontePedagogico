@@ -102,6 +102,25 @@ h1 em {
   font-style: normal;
 }
 
+.typewriter-word {
+  animation: typewriterCaret 0.78s step-end infinite;
+  border-right: 0.055em solid currentColor;
+  padding-right: 0.08em;
+}
+
+@keyframes typewriterCaret {
+  0%, 45% { border-right-color: currentColor; }
+  46%, 100% { border-right-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-word {
+    animation: none;
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+
 h2 { font-size: clamp(2.35rem, 5vw, 4.45rem); margin-bottom: 1rem; }
 h3 { font-size: 1.28rem; line-height: 1.25; }
 
