@@ -444,7 +444,7 @@ h3 { font-size: 1.28rem; line-height: 1.25; }
 .hero-profile-photo img {
   height: 100%;
   object-fit: cover;
-  object-position: center 54%;
+  object-position: center center;
   width: 100%;
 }
 

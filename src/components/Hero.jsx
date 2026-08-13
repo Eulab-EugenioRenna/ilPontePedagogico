@@ -34,7 +34,7 @@ export default function Hero({ onPrimary }) {
       <aside id="chi-sono" className="portrait-card hero-profile" data-reveal aria-labelledby="hero-profile-title">
         <div className="hero-profile-photo">
           <img
-            src="/shooting-noemi-13.jpg"
+            src="/noemi-6.png"
             alt="Noemi Urboni durante un’attività educativa"
           />
           <span className="hero-profile-badge">7+ anni<br />di esperienza</span>
