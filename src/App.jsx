@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import NeedNavigator from './components/NeedNavigator.jsx';
-import About from './components/About.jsx';
 import ServiceExplorer from './components/ServiceExplorer.jsx';
 import MethodCompass from './components/MethodCompass.jsx';
 import Audience from './components/Audience.jsx';
@@ -37,7 +36,6 @@ export default function App() {
       <Header />
       <main>
         <Hero onPrimary={() => document.getElementById('servizi')?.scrollIntoView({ behavior: 'smooth' })} />
-        <About />
         <NeedNavigator onChoose={(id) => selectAndScroll(id, 'servizi')} />
         <ServiceExplorer
           selectedServiceId={selectedServiceId}

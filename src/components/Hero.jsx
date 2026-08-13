@@ -31,6 +31,23 @@ export default function Hero({ onPrimary }) {
         </div>
       </div>
 
+      <aside id="chi-sono" className="portrait-card hero-profile" data-reveal aria-labelledby="hero-profile-title">
+        <div className="hero-profile-photo">
+          <img
+            src="/shooting-noemi-13.jpg"
+            alt="Noemi Urboni durante un’attività educativa"
+          />
+          <span className="hero-profile-badge">7+ anni<br />di esperienza</span>
+        </div>
+        <div className="hero-profile-copy">
+          <span className="section-kicker">Chi sono</span>
+          <h2 id="hero-profile-title">Prima di agire, bisogna capire.</h2>
+          <p>
+            Mi chiamo <strong>Noemi Urboni</strong>. Unisco Pedagogia, Analisi del Comportamento Applicata — ABA e insegnamento per leggere ogni bisogno da più prospettive.
+          </p>
+          <a className="hero-profile-link" href="#metodo">Scopri il mio approccio <span aria-hidden="true">→</span></a>
+        </div>
+      </aside>
     </section>
   );
 }
