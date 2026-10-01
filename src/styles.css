@@ -2064,3 +2064,135 @@ input:focus, select:focus, textarea:focus { border-color: rgba(169, 121, 99, 0.6
   .booking-slots { max-height: 250px; }
   .action-tab { padding: 0.65rem 0.8rem; }
 }
+
+/* ================================================================== */
+/* PAGINA "IN ARRIVO" (VITE_COMING_SOON)                               */
+/* ================================================================== */
+
+.coming-soon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.4rem, 4vw, 2.4rem);
+  isolation: isolate;
+  justify-content: center;
+  margin-inline: auto;
+  min-height: 100vh;
+  padding: clamp(3.5rem, 9vw, 7rem) 0;
+  position: relative;
+  text-align: center;
+  width: var(--container);
+}
+
+.coming-soon::before,
+.coming-soon::after {
+  animation: heroSphereOne 26s ease-in-out infinite;
+  border-radius: 999px;
+  content: '';
+  filter: blur(16px);
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.coming-soon::before {
+  background: radial-gradient(circle, rgba(231, 207, 199, 0.9), rgba(231, 207, 199, 0));
+  height: 30rem;
+  left: -20vw;
+  top: 2rem;
+  width: 30rem;
+}
+
+.coming-soon::after {
+  animation-name: heroSphereTwo;
+  animation-duration: 32s;
+  background: radial-gradient(circle, rgba(201, 215, 221, 0.9), rgba(201, 215, 221, 0));
+  bottom: -4rem;
+  height: 26rem;
+  right: -18vw;
+  width: 26rem;
+}
+
+.coming-soon-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 780px;
+  padding: clamp(2.2rem, 6vw, 4rem) clamp(1.4rem, 5vw, 3.6rem);
+  position: relative;
+  z-index: 1;
+}
+
+.coming-soon-mark {
+  color: var(--accent);
+  height: clamp(3.4rem, 8vw, 4.4rem);
+  margin-bottom: 1.3rem;
+  width: clamp(3.4rem, 8vw, 4.4rem);
+}
+
+.coming-soon-mark svg { height: 100%; width: 100%; }
+.coming-soon-mark-bg { fill: rgba(231, 207, 199, 0.55); stroke: none; }
+.coming-soon-mark-line { stroke: var(--accent-dark); stroke-width: 2.6; }
+
+.coming-soon h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  margin-bottom: 1.1rem;
+  max-width: 16ch;
+}
+
+.coming-soon-lead {
+  color: var(--muted);
+  font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+  margin-bottom: 0;
+  max-width: 56ch;
+}
+
+.coming-soon-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.coming-soon-instagram {
+  align-items: center;
+  color: var(--muted);
+  display: inline-flex;
+  font-size: 0.92rem;
+  font-weight: 800;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.coming-soon-instagram:hover { color: var(--accent-dark); transform: translateY(-2px); }
+
+.coming-soon-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0;
+  max-width: 60ch;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 620px) {
+  .coming-soon { padding: 3rem 0; }
+  .coming-soon-card { border-radius: var(--radius-lg); }
+  .coming-soon-actions { flex-direction: column; width: 100%; }
+  .coming-soon-actions .button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon::before,
+  .coming-soon::after { animation: none; }
+}

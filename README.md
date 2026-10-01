@@ -147,6 +147,28 @@ CONTACT_NOTIFY_EMAIL=noemi.urboni@hotmail.it   # fallback: BOOKING_NOTIFY_EMAIL
 CONTACT_FROM_EMAIL="Il Ponte Pedagogico <contatti@tuodominio.it>"  # fallback: BOOKING_FROM_EMAIL
 ```
 
+## Modalità “in arrivo” (coming soon)
+
+Per pubblicare una pagina di attesa al posto della landing (utile durante la
+manutenzione) basta una variabile d’ambiente:
+
+```txt
+VITE_COMING_SOON=true
+```
+
+- Prefisso **`VITE_`** obbligatorio: Vite incorpora il valore nel bundle **al
+  momento della build**, quindi dopo la modifica serve un **nuovo deploy** (su
+  Vercel: Settings → Environment Variables, poi Redeploy).
+- Valori accettati come “attivo”: `true`, `1`, `yes`, `on`, `sì`. Qualsiasi altro
+  valore (o vuoto) mantiene il sito normale.
+- La pagina mostra comunque WhatsApp, email e Instagram, così le richieste non
+  si perdono durante l’attesa, e imposta `noindex` per non farsi indicizzare.
+- Il pannello interno **`/appuntamenti`** resta sempre raggiungibile.
+- Per rivedere la landing in locale: `VITE_COMING_SOON=false npm run dev`.
+
+Implementazione: `src/config/flags.js` (flag) e `src/pages/ComingSoon.jsx`
+(pagina); l’attivazione è gestita in `src/App.jsx`.
+
 ## Configurazione store prenotazioni
 
 Lo store di **default è Redis**: in produzione/preview le Edge Functions lo
@@ -228,6 +250,7 @@ npm run build
 - Orari e regole di prenotazione: `config/schedule.js`
 - Webhook/email (fallback): `config/notifications.js`
 - Variabili d’ambiente: copia `.env.example` in `.env.local`
+- Pagina “in arrivo”: `src/pages/ComingSoon.jsx` (flag `VITE_COMING_SOON` in `src/config/flags.js`)
 
 ## Deploy
 

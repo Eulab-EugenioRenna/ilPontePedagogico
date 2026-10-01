@@ -12,7 +12,9 @@ import Footer from './components/Footer.jsx';
 import FloatingActions from './components/FloatingActions.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import Appointments from './pages/Appointments.jsx';
+import ComingSoon from './pages/ComingSoon.jsx';
 import { services } from './data/siteContent.js';
+import { comingSoon } from './config/flags.js';
 import { bookingTopics } from '../config/listino.js';
 import { matchesPath, usePathname } from './router.jsx';
 import { useReveal } from './hooks/useReveal.js';
@@ -66,6 +68,12 @@ export default function App() {
         <Appointments />
       </>
     );
+  }
+
+  // Modalità "in arrivo" (VITE_COMING_SOON): sostituisce la landing pubblica
+  // ma lascia raggiungibile il pannello interno /appuntamenti.
+  if (comingSoon) {
+    return <ComingSoon />;
   }
 
   return (
