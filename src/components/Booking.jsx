@@ -102,7 +102,6 @@ export default function Booking({ topic, onTopicChange }) {
   const [message, setMessage] = useState('');
   const [confirmed, setConfirmed] = useState(null);
   const formRef = useRef(null);
-  const touchStart = useRef(null);
 
   const loadWeek = useCallback(async (start) => {
     setCache((prev) => ({ ...prev, [start]: { ...prev[start], loading: true, error: null } }));
@@ -148,17 +147,6 @@ export default function Booking({ topic, onTopicChange }) {
     setSelected(null);
     setStatus('idle');
     setWeekStart(next);
-  };
-
-  const handleTouchStart = (event) => {
-    touchStart.current = event.touches[0]?.clientX ?? null;
-  };
-
-  const handleTouchEnd = (event) => {
-    if (touchStart.current == null) return;
-    const delta = (event.changedTouches[0]?.clientX ?? 0) - touchStart.current;
-    if (Math.abs(delta) > 55) shiftWeek(delta < 0 ? 1 : -1);
-    touchStart.current = null;
   };
 
   const handleSelect = (date, time, available) => {
@@ -306,12 +294,7 @@ export default function Booking({ topic, onTopicChange }) {
           </p>
         )}
 
-        <div
-          className="booking-week"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          aria-busy={isLoading}
-        >
+        <div className="booking-week" aria-busy={isLoading}>
           {days.map((day) => {
             const isToday = day.date === todayISO();
             return (
