@@ -25,10 +25,14 @@ export default function MethodCompass() {
           id: 'method-scroll-trigger',
           trigger: block,
           pin: block,
-          start: 'top top+=96',
-          end: () => `+=${methodTabs.length * 520}`,
-          scrub: 0.35,
+          // Ancora il blocco al centro del viewport.
+          start: 'center center',
+          // Durata relativa all'altezza viewport: nessuno scatto al resize.
+          end: () => `+=${methodTabs.length * window.innerHeight * 0.7}`,
+          scrub: 0.6,
           anticipatePin: 1,
+          pinSpacing: true,
+          fastScrollEnd: true,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             const index = Math.min(methodTabs.length - 1, Math.floor(self.progress * methodTabs.length));
@@ -54,7 +58,7 @@ export default function MethodCompass() {
     const trigger = triggerRef.current;
     if (!trigger) return;
 
-    const progress = methodTabs.length === 1 ? 0 : index / methodTabs.length + 0.01;
+    const progress = methodTabs.length === 1 ? 0 : (index + 0.5) / methodTabs.length;
     const target = trigger.start + (trigger.end - trigger.start) * progress;
     window.scrollTo({ top: target, behavior: 'smooth' });
   };
@@ -89,7 +93,7 @@ export default function MethodCompass() {
           </div>
 
           <article className="scroll-section" aria-live="polite">
-            <div className="scroll-section-copy">
+            <div className="scroll-section-copy" key={active.id}>
               <span>{active.eyebrow}</span>
               <h3>{active.title}</h3>
               <p>{active.text}</p>

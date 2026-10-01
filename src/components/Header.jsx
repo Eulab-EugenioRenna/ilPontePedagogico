@@ -4,7 +4,6 @@ const links = [
   { href: '#chi-sono', label: 'Chi sono' },
   { href: '#servizi', label: 'Servizi' },
   { href: '#metodo', label: 'Metodo' },
-  { href: '#storie', label: 'Storie' },
   { href: '#contatti', label: 'Contatti' },
 ];
 
@@ -75,7 +74,7 @@ export default function Header() {
         {links.map((link) => (
           <a key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
         ))}
-        <a className="nav-cta" href="#contatti" onClick={() => setOpen(false)}>Capisci da dove iniziare</a>
+        <a className="nav-cta" href="#prenota" onClick={() => setOpen(false)}>Prenota 15 min</a>
       </nav>
     </header>
   );

@@ -9,6 +9,7 @@ export default function Footer() {
       </div>
       <nav aria-label="Link footer">
         <a href={contact.instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+        <a href="/appuntamenti">Area appuntamenti</a>
         <a href="#contatti">Contatti</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Cookie Policy</a>

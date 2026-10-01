@@ -1,21 +1,19 @@
 import { useMemo, useState } from 'react';
 import { services } from '../data/siteContent.js';
+import { formatPrice } from '../../config/listino.js';
 
 const areas = ['Tutti', ...Array.from(new Set(services.map((service) => service.area)))];
 
 export default function ServiceExplorer({ selectedServiceId, onSelect, onCta }) {
   const [area, setArea] = useState('Tutti');
   const selectedService = services.find((service) => service.id === selectedServiceId) ?? services[0];
-  const filtered = useMemo(() => (area === 'Tutti' ? services : services.filter((service) => service.area === area)), [area]);
+  const filtered = useMemo(
+    () => (area === 'Tutti' ? services : services.filter((service) => service.area === area)),
+    [area],
+  );
 
   return (
-    <section id="servizi" className="services section-shell">
-      <div className="section-heading" data-reveal>
-        <span className="section-kicker">Servizi</span>
-        <h2>Non devi sapere già quale percorso scegliere.</h2>
-        <p>Parti dalla difficoltà che stai vivendo: insieme possiamo capire quale tipo di supporto può esserti davvero utile.</p>
-      </div>
-
+    <div className="service-explorer">
       <div className="service-filters" data-reveal aria-label="Filtra i servizi per area">
         {areas.map((item) => (
           <button key={item} className={item === area ? 'is-active' : ''} type="button" onClick={() => setArea(item)}>
@@ -36,6 +34,9 @@ export default function ServiceExplorer({ selectedServiceId, onSelect, onCta }) 
               <span>{service.area}</span>
               <strong>{service.title}</strong>
               <p>{service.short}</p>
+              <span className="service-card-price">
+                Prima {formatPrice(service.price.first)} · Monitoraggio {formatPrice(service.price.followUp)}
+              </span>
             </button>
           ))}
         </div>
@@ -60,11 +61,24 @@ export default function ServiceExplorer({ selectedServiceId, onSelect, onCta }) 
             </div>
           </div>
 
+          <div className="detail-price">
+            <div>
+              <small>{selectedService.firstLabel ?? 'Prima Consulenza'}</small>
+              <strong>{formatPrice(selectedService.price.first)}</strong>
+              <span>60 min + relazione specifica</span>
+            </div>
+            <div>
+              <small>{selectedService.followUpLabel ?? 'Incontro di Monitoraggio'}</small>
+              <strong>{formatPrice(selectedService.price.followUp)}</strong>
+              <span>60 minuti</span>
+            </div>
+          </div>
+
           <button className="button primary full" type="button" onClick={() => onCta(selectedService.id)}>
             {selectedService.cta}
           </button>
         </article>
       </div>
-    </section>
+    </div>
   );
 }
