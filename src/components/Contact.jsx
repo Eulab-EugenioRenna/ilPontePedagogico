@@ -74,7 +74,9 @@ export default function Contact({ selectedService, onSelectService }) {
         body: JSON.stringify(payload),
       });
       const type = res.headers.get('content-type') ?? '';
-      if (!res.ok || !type.includes('application/json')) {
+      // Endpoint assente (vite dev / hosting statico) => risposta non JSON:
+      // solo in questo caso ha senso ripiegare sul client email.
+      if (!type.includes('application/json')) {
         throw Object.assign(new Error('api-unavailable'), { fallback: true });
       }
       const result = await res.json();
@@ -82,6 +84,7 @@ export default function Contact({ selectedService, onSelectService }) {
         if (result.error?.code === 'email-not-configured') {
           throw Object.assign(new Error(result.error.message), { fallback: true });
         }
+        // Errore di validazione o di invio: mostralo, senza aprire il mailto.
         throw new Error(result.error?.message ?? 'Invio non riuscito.');
       }
       form.reset();
@@ -151,7 +154,7 @@ export default function Contact({ selectedService, onSelectService }) {
           <textarea name="message" rows="5" placeholder="Qual è il momento che oggi ti mette più in difficoltà?" required />
         </label>
         <label className="privacy-check">
-          <input type="checkbox" required />
+          <input type="checkbox" name="consent" required />
           <span>Accetto il trattamento dei dati secondo la Privacy Policy.</span>
         </label>
         <button className="button primary full" type="submit" disabled={status === 'submitting'}>
