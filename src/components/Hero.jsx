@@ -12,8 +12,10 @@ export default function Hero({ onPrimary }) {
           <span className="sr-only">
             Capire cosa accade. Costruire routine più serene, strategie concrete, autonomie possibili e una scuola più inclusiva.
           </span>
-          <span aria-hidden="true">
-            Capire cosa accade. Costruire <em className="typewriter-word">{word}</em>
+          <span aria-hidden="true" className="hero-title">Capire cosa accade. Costruire</span>
+          <span aria-hidden="true" className="hero-word-slot">
+            <span className="hero-word-sizer">scuola più inclusiva</span>
+            <span className="hero-word-live"><em className="typewriter-word">{word}</em></span>
           </span>
         </h1>
         <p className="hero-lead">
