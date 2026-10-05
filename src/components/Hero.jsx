@@ -1,5 +1,6 @@
 import { rotatingWords } from '../data/siteContent.js';
 import { useTypewriterWord } from '../hooks/useRotatingWord.js';
+import { serviceArea } from '../../config/seo.js';
 
 export default function Hero({ onPrimary }) {
   const word = useTypewriterWord(rotatingWords);
@@ -7,10 +8,10 @@ export default function Hero({ onPrimary }) {
   return (
     <section id="top" className="hero section-shell">
       <div className="hero-copy" data-reveal>
-        <div className="eyebrow"><span /> Noemi Urboni · Pedagogista ABA</div>
+        <div className="eyebrow"><span /> Noemi Urboni · Consulenza pedagogica e genitoriale</div>
         <h1>
           <span className="sr-only">
-            Capire cosa accade. Costruire routine più serene, strategie concrete, autonomie possibili e una scuola più inclusiva.
+            Consulenza pedagogica e supporto ai genitori con Noemi Urboni, pedagogista online e nella provincia di Milano. Capire cosa accade. Costruire routine più serene, strategie concrete, autonomie possibili e una scuola più inclusiva.
           </span>
           <span aria-hidden="true" className="hero-title">Capire cosa accade. Costruire</span>
           <span aria-hidden="true" className="hero-word-slot">
@@ -21,6 +22,7 @@ export default function Hero({ onPrimary }) {
         <p className="hero-lead">
           Se una routine, un comportamento o il rapporto con lo studio sono diventati fonte di fatica, non devi avere già una risposta. Partiamo da ciò che accade e costruiamo strategie applicabili ogni giorno.
         </p>
+        <p className="hero-location">{serviceArea}</p>
         <div className="hero-actions">
           <button className="button primary" type="button" onClick={onPrimary}>Capisci da dove iniziare</button>
           <a className="button ghost" href="#metodo">Come lavoreremo insieme</a>

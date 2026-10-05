@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
 
+.hero-location { color: var(--muted); font-size: 0.95rem; max-width: 52ch; }
+.faq { padding-block: clamp(3rem, 7vw, 6rem); }
+.faq-list { max-width: 900px; margin-inline: auto; border-top: 1px solid var(--line); }
+.faq-list details { border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.faq-list summary { color: var(--text); cursor: pointer; font-weight: 600; line-height: 1.5; }
+.faq-list summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.faq-list p { color: var(--muted); max-width: 75ch; margin: 1rem 0 0; }
+.faq-contact { text-align: center; margin-top: 1.5rem; }
+.faq-contact a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+.service-page { padding-block: 2rem 5rem; }
+.service-page article { max-width: 820px; margin-inline: auto; }
+.service-page h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.12; margin-top: 1rem; }
+.service-page-intro { font-size: 1.15rem; color: var(--muted); }
+.service-page article > section { margin-top: 2.5rem; }
+.service-page article > section h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+.service-page .faq { padding-block: 0; }
+.service-breadcrumb { margin-bottom: 2.5rem; color: var(--muted); }
+.service-related { display: flex; flex-wrap: wrap; gap: 0.7rem 1.4rem; margin-top: 2rem; }
+.service-related h2, .service-related h3 { flex-basis: 100%; margin: 0; }
+.service-related a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 4px; }
+
 :root {
   --ivory: #faf7f2;
   --cream: #f4ece4;

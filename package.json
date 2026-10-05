@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "dev:api": "vercel dev",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {

@@ -1,4 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    { "source": "/appuntamenti", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
+    { "source": "/appuntamenti.html", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
+    { "source": "/api/:path*", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+  ]
 }

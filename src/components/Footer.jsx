@@ -1,6 +1,6 @@
 import { contact } from '../data/siteContent.js';
 
-export default function Footer() {
+export default function Footer({ homePrefix = '' }) {
   return (
     <footer className="site-footer">
       <div>
@@ -10,7 +10,8 @@ export default function Footer() {
       <nav aria-label="Link footer">
         <a href={contact.instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
         <a href="/appuntamenti">Area appuntamenti</a>
-        <a href="#contatti">Contatti</a>
+        <a href={`${homePrefix}#contatti`}>Contatti</a>
+        <a href={`${homePrefix}#domande-frequenti`}>Domande frequenti</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Cookie Policy</a>
       </nav>

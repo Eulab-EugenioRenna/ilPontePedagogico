@@ -9,6 +9,31 @@ function env() {
   return typeof process !== 'undefined' ? process.env ?? {} : {};
 }
 
+/**
+ * Primo valore "non vuoto" tra quelli passati.
+ * Uno spazio (o una stringa di soli spazi) conta come assente: così le env
+ * bianche non bloccano la catena di fallback (`' ' || fallback` sarebbe truthy).
+ */
+function firstValue(...values) {
+  for (const value of values) {
+    const trimmed = String(value ?? '').trim();
+    if (trimmed) return trimmed;
+  }
+  return '';
+}
+
+/** Destinatari validi dalla prima sorgente che ne contiene almeno uno. */
+function recipientList(...values) {
+  for (const value of values) {
+    const list = String(value ?? '')
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+    if (list.length > 0) return list;
+  }
+  return [];
+}
+
 function maskUrl(url) {
   try {
     const parsed = new URL(url);
@@ -21,8 +46,8 @@ function maskUrl(url) {
 export function webhookSettings() {
   const e = env();
   return {
-    url: (e.BOOKING_WEBHOOK_URL || e.APPOINTMENT_WEBHOOK_URL || cfg.webhookUrl || '').trim(),
-    secret: (e.BOOKING_WEBHOOK_SECRET || cfg.webhookSecret || '').trim(),
+    url: firstValue(e.BOOKING_WEBHOOK_URL, e.APPOINTMENT_WEBHOOK_URL, cfg.webhookUrl),
+    secret: firstValue(e.BOOKING_WEBHOOK_SECRET, cfg.webhookSecret),
     timeoutMs: cfg.webhookTimeoutMs,
   };
 }
@@ -30,12 +55,9 @@ export function webhookSettings() {
 export function emailSettings() {
   const e = env();
   return {
-    apiKey: (e.RESEND_API_KEY || '').trim(),
-    to: (e.BOOKING_NOTIFY_EMAIL || cfg.emailTo || '')
-      .split(',')
-      .map((value) => value.trim())
-      .filter(Boolean),
-    from: (e.BOOKING_FROM_EMAIL || cfg.emailFrom || '').trim(),
+    apiKey: firstValue(e.RESEND_API_KEY),
+    to: recipientList(e.BOOKING_NOTIFY_EMAIL, cfg.emailTo),
+    from: firstValue(e.BOOKING_FROM_EMAIL, cfg.emailFrom),
   };
 }
 
@@ -43,12 +65,14 @@ export function emailSettings() {
 export function contactEmailSettings() {
   const e = env();
   return {
-    apiKey: (e.RESEND_API_KEY || '').trim(),
-    to: (e.CONTACT_NOTIFY_EMAIL || e.BOOKING_NOTIFY_EMAIL || cfg.contactEmailTo || cfg.emailTo || '')
-      .split(',')
-      .map((value) => value.trim())
-      .filter(Boolean),
-    from: (e.CONTACT_FROM_EMAIL || e.BOOKING_FROM_EMAIL || cfg.emailFrom || '').trim(),
+    apiKey: firstValue(e.RESEND_API_KEY),
+    to: recipientList(
+      e.CONTACT_NOTIFY_EMAIL,
+      e.BOOKING_NOTIFY_EMAIL,
+      cfg.contactEmailTo,
+      cfg.emailTo,
+    ),
+    from: firstValue(e.CONTACT_FROM_EMAIL, e.BOOKING_FROM_EMAIL, cfg.emailFrom),
   };
 }
 

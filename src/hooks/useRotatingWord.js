@@ -5,7 +5,7 @@ export function useTypewriterWord(
   { typingDelay = 82, deletingDelay = 46, holdDelay = 1350, gapDelay = 280 } = {},
 ) {
   const [wordIndex, setWordIndex] = useState(0);
-  const [text, setText] = useState('');
+  const [text, setText] = useState(words[0] ?? '');
   const [phase, setPhase] = useState('typing');
   const [reduceMotion, setReduceMotion] = useState(false);
 

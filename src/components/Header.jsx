@@ -4,10 +4,11 @@ const links = [
   { href: '#chi-sono', label: 'Chi sono' },
   { href: '#servizi', label: 'Servizi' },
   { href: '#metodo', label: 'Metodo' },
+  { href: '#domande-frequenti', label: 'Domande frequenti' },
   { href: '#contatti', label: 'Contatti' },
 ];
 
-export default function Header() {
+export default function Header({ homePrefix = '' }) {
   const [open, setOpen] = useState(false);
   const headerRef = useRef(null);
 
@@ -49,7 +50,7 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className={open ? 'site-header is-menu-open' : 'site-header'}>
-      <a className="brand" href="#top" aria-label="Torna all’inizio">
+      <a className="brand" href={`${homePrefix}#top`} aria-label="Torna all’inizio">
         <span className="brand-mark" aria-hidden="true">∩</span>
         <span>
           <strong>Il Ponte</strong>
@@ -72,9 +73,9 @@ export default function Header() {
 
       <nav id="main-nav" className={open ? 'nav is-open' : 'nav'} aria-label="Menu principale">
         {links.map((link) => (
-          <a key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
+          <a key={link.href} href={`${homePrefix}${link.href}`} onClick={() => setOpen(false)}>{link.label}</a>
         ))}
-        <a className="nav-cta" href="#prenota" onClick={() => setOpen(false)}>Prenota 15 min</a>
+        <a className="nav-cta" href={`${homePrefix}#prenota`} onClick={() => setOpen(false)}>Prenota 15 min</a>
       </nav>
     </header>
   );

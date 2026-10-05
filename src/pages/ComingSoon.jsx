@@ -1,8 +1,6 @@
-import { useEffect } from 'react';
 import { contact } from '../data/siteContent.js';
 import { InstagramIcon, WhatsAppIcon } from '../components/SocialIcons.jsx';
 
-const TITLE = 'Il Ponte Pedagogico — In arrivo';
 
 /**
  * Pagina "in arrivo" mostrata al posto della landing quando
@@ -12,21 +10,6 @@ const TITLE = 'Il Ponte Pedagogico — In arrivo';
  * durante la manutenzione, e mantiene `noindex` finché è visibile.
  */
 export default function ComingSoon() {
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = TITLE;
-
-    const robots = document.createElement('meta');
-    robots.name = 'robots';
-    robots.content = 'noindex, nofollow';
-    document.head.appendChild(robots);
-
-    return () => {
-      document.title = previousTitle;
-      robots.remove();
-    };
-  }, []);
-
   const whatsappUrl = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(
     'Ciao Noemi, ho visto che il sito è in arrivo. Vorrei ricevere informazioni su una consulenza pedagogica.',
   )}`;

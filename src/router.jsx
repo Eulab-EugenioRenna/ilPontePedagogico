@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 /** Pathname reattivo (supporta back/forward del browser). */
-export function usePathname() {
+export function usePathname(initialPath = '/') {
   const [pathname, setPathname] = useState(() =>
-    typeof window === 'undefined' ? '/' : window.location.pathname,
+    typeof window === 'undefined' ? initialPath : window.location.pathname,
   );
 
   useEffect(() => {

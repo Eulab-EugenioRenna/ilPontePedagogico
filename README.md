@@ -1,5 +1,43 @@
 # Il Ponte Pedagogico — React Dynamic Landing v2
 
+## SEO e indicizzazione
+
+Il dominio canonico è **https://pontepedagogico.it**, definito in `config/seo.js`.
+`npm run build` genera HTML con contenuti e metadati già presenti, `dist/sitemap.xml`
+e `dist/robots.txt`. `npm run check:seo` verifica gli artefatti della build.
+Le anteprime Open Graph e Twitter usano `public/og-image.png` (1200 × 630).
+
+La sitemap contiene la home e cinque approfondimenti reali, collegati dalla sezione servizi:
+
+- `/consulenza-genitoriale`
+- `/consulenza-pedagogica-0-3-anni`
+- `/supporto-aba`
+- `/supporto-allo-studio`
+- `/pedagogista-milano-online`
+
+I testi degli approfondimenti sono in `config/seo-pages.js`; le FAQ sono in
+`config/seo.js`, condivise con i dati strutturati per mantenere le risposte coerenti.
+Le parole chiave sono inserite nei testi pertinenti, senza meta keywords o pagine
+che reindirizzano alla home. I riferimenti geografici descrivono le consulenze
+online e in presenza confermate; non viene dichiarato un servizio a domicilio.
+
+`/appuntamenti` e la pagina 404 hanno `noindex` nell’HTML iniziale. L’area
+appuntamenti resta scansionabile per consentire la lettura di questa direttiva.
+`noindex` non sostituisce l’autenticazione dell’area riservata. Le API sono escluse
+dalla scansione. Vercel usa URL senza `.html` e una vera pagina 404, senza il
+precedente rewrite universale alla home; le API continuano a usare le funzioni Vercel.
+
+Con `VITE_COMING_SOON=true` la home resta `noindex`, gli approfondimenti non sono
+indicizzabili e la sitemap non contiene URL. Per il sito pubblico lasciare il flag
+vuoto o impostarlo a `false` e ricostruire il sito.
+
+Dopo il deploy, verificare le risposte HTTP di `/sitemap.xml`, `/robots.txt` e dei
+cinque approfondimenti; in Google Search Console inviare `sitemap.xml` ed eseguire
+Ispezione URL sulla home e sulle nuove pagine. La verifica Search Console già
+configurata sul dominio non viene modificata. I dati FAQ non garantiscono risultati
+avanzati: Google ne limita la visualizzazione. Misurare impressioni, clic e query
+dopo l’indicizzazione; la configurazione SEO non garantisce posizioni specifiche.
+
 Versione **dinamica e più coinvolgente** della landing per la Dott.ssa Noemi Urboni.
 
 ## Cosa cambia rispetto alla versione base

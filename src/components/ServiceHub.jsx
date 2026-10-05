@@ -1,5 +1,6 @@
 import ServiceExplorer from './ServiceExplorer.jsx';
 import Pricing from './Pricing.jsx';
+import { seoPages } from '../../config/seo-pages.js';
 
 /**
  * Sezione unificata: servizi con tariffe + pacchetti famiglia.
@@ -24,6 +25,10 @@ export default function ServiceHub({ selectedServiceId, onSelectService, onServi
       />
 
       <Pricing onBook={onBook} />
+      <nav className="service-related" aria-label="Approfondimenti sui servizi">
+        <h3>Approfondisci il percorso</h3>
+        {seoPages.map((page) => <a key={page.path} href={page.path}>{page.label}</a>)}
+      </nav>
     </section>
   );
 }

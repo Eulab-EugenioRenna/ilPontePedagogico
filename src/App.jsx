@@ -13,15 +13,20 @@ import FloatingActions from './components/FloatingActions.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
 import Appointments from './pages/Appointments.jsx';
 import ComingSoon from './pages/ComingSoon.jsx';
+import NotFound from './pages/NotFound.jsx';
+import Seo from './components/Seo.jsx';
+import Faq from './components/Faq.jsx';
+import ServicePage from './pages/ServicePage.jsx';
+import { findSeoPage } from '../config/seo-pages.js';
 import { services } from './data/siteContent.js';
 import { comingSoon } from './config/flags.js';
 import { bookingTopics } from '../config/listino.js';
 import { matchesPath, usePathname } from './router.jsx';
 import { useReveal } from './hooks/useReveal.js';
 
-export default function App() {
+export default function App({ initialPath = '/' }) {
   useReveal();
-  const pathname = usePathname();
+  const pathname = usePathname(initialPath);
   const [selectedServiceId, setSelectedServiceId] = useState(services[0].id);
   const [bookingTopic, setBookingTopic] = useState(bookingTopics[0]);
   const [actionTab, setActionTab] = useState('book');
@@ -64,20 +69,31 @@ export default function App() {
   if (matchesPath(pathname, '/appuntamenti')) {
     return (
       <>
+        <Seo pathname={pathname} comingSoon={comingSoon} />
         <ScrollProgress />
         <Appointments />
       </>
     );
   }
 
+  const servicePage = findSeoPage(pathname);
+  if (servicePage && !comingSoon) {
+    return <><Seo pathname={pathname} comingSoon={comingSoon} /><ServicePage page={servicePage} /></>;
+  }
+
+  if ((pathname.replace(/\/+$/, '') || '/') !== '/') {
+    return <><Seo pathname={pathname} comingSoon={comingSoon} /><NotFound /></>;
+  }
+
   // Modalità "in arrivo" (VITE_COMING_SOON): sostituisce la landing pubblica
   // ma lascia raggiungibile il pannello interno /appuntamenti.
   if (comingSoon) {
-    return <ComingSoon />;
+    return <><Seo pathname={pathname} comingSoon={comingSoon} /><ComingSoon /></>;
   }
 
   return (
     <>
+      <Seo pathname={pathname} comingSoon={comingSoon} />
       <ScrollProgress />
       <Header />
       <main>
@@ -92,6 +108,7 @@ export default function App() {
         <MethodCompass />
         <Audience />
         <Journey />
+        <Faq />
         {/* <SocialProof /> */}
         <ContactBooking
           actionTab={actionTab}
